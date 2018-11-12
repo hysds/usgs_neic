@@ -1,0 +1,13 @@
+{
+  "command":"/home/ops/verdi/ops/usgs_neic/test_query.sh",
+  "imported_worker_files": {
+    "/home/ops/.netrc": "/home/ops/.netrc",
+    "/home/ops/.aws": "/home/ops/.aws"
+  },
+  "disk_usage":"2GB",
+  "recommended-queues": [ "factotum-job_worker-small" ],
+  "soft_time_limit": 1000,
+  "time_limit": 1800,
+  "params" : []
+}
+

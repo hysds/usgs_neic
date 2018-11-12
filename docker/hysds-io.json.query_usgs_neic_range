@@ -1,0 +1,29 @@
+{
+    "label": "Query USGS NEIC Earthquake Feed Time Range",
+    "submission_type": "individual",
+    "params" : [
+    {
+      "name": "minimum_magnitude",
+      "from": "submitter",
+      "type": "text",
+      "default": "5.0"
+    },
+    {
+      "name": "starttime",
+      "from": "submitter",
+      "type": "text"
+    },
+    {
+      "name": "endtime",
+      "from": "submitter",
+      "type": "text"
+    },
+    {
+      "name": "geojson_polygon",
+      "from": "submitter",
+      "type": "text",
+      "default": "[[-180,-90],[-180,90],[180,90],[180,-90],[-180,-90]]"
+    }
+    ]
+}
+

@@ -1,0 +1,206 @@
+commit 221fe4390fe616cc777f6cce48d45ebb2dccbc90
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Thu Nov 8 14:19:26 2018 -0800
+
+    remove conf
+
+commit 5123c45cb76e3cb5d2c4ed18fb3ed4380372db61
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Thu Nov 8 13:08:49 2018 -0800
+
+    skip settings.conf
+
+commit dc755bb027a3033a9db8a086654e00e4a152e83a
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Thu Nov 8 13:08:28 2018 -0800
+
+    clear settings.conf
+
+commit 12fd5c5ddd7045b4e96ac657a719142f234c0fde
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Thu Nov 8 11:26:54 2018 -0800
+
+    add shapely
+
+commit 81c37ca9c4a86e00eb631535886280056b44a4d0
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Thu Nov 8 11:23:59 2018 -0800
+
+    remove id and gid
+
+commit 4de08e85c361ac9d5efe17f763c627bbc56f6b8f
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Thu Jul 12 21:40:54 2018 +0000
+
+    add timestamp to submit query job logs
+
+commit ef1c5a788debbd8f33da1dc3e876fff014c24373
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Wed Jul 11 21:44:53 2018 +0000
+
+    fix docker spec
+
+commit 41a9eccb2a91f353627bcfe9192a3b7de69be5bc
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Wed Jul 11 21:43:02 2018 +0000
+
+    add new query job
+
+commit e1e6b5bb49f99dc33fe18088f734dc52b5c14196
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Wed Jul 11 21:04:16 2018 +0000
+
+    submit event products directly as default in job
+
+commit 9dc58f1676871eea4bd45547c84cc8a9e76f531e
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Sat Jun 23 01:29:08 2018 +0000
+
+    update product names & add test query job
+
+commit 1b30beb3ff29d78fc516891ade6e9413b01bef93
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Wed Jun 20 15:55:42 2018 -0700
+
+    separate query & evaluation PGEs
+
+commit 207aecb10e7107d5e12d3855b01b175711040dfb
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Wed Jun 20 11:10:34 2018 -0700
+
+    update dockerfiles & hard limits
+
+commit 5113e3708dbdbc78b138232cb103d81fd08d2281
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Wed Jun 20 16:50:23 2018 +0000
+
+    update Dockerfile v2
+
+commit b1d52cdef57eb927b28a9c08c9294c616bd61bd1
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Wed Jun 20 16:49:18 2018 +0000
+
+    update dockerfile for mask
+
+commit 3c680e0f70bc2ece6f72464be8a50001b758a7d1
+Merge: f64f9c0 08c702f
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Tue Jun 19 22:50:33 2018 -0700
+
+    Merge pull request #1 from aria-hysds/dev
+    
+    update config params &  processing for event evaluation
+
+commit f64f9c0fb511ee570c3198b87b84a78b0a08e2a9
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Wed Jun 20 05:52:33 2018 +0000
+
+    update product: usgs_neic_pdl_<event>
+
+commit 08c702f49fa35b022dd5d1abdc31f4dcb935e0b0
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Tue Jun 19 01:34:41 2018 +0000
+
+    update config params &  processing for event evaluation
+
+commit 263278f7b0b98a916911e7c0a9599201bc68f8aa
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 23:07:10 2018 +0000
+
+    update submission for test product
+
+commit 30754b50a992653106a2569ad5a0baeb16aebf9c
+Author: gmanipon <gmanipon@jpl.nasa.gov>
+Date:   Mon Jun 18 22:21:22 2018 +0000
+
+    set epicenter as out for met
+
+commit ffc76acc7b7402333a8c23afa9236956e7255754
+Author: gmanipon <gmanipon@jpl.nasa.gov>
+Date:   Mon Jun 18 22:12:43 2018 +0000
+
+    submit event location as polygon:
+
+commit 1d765d39ac195e88a1998f6d8b792889b30c88f5
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 14:13:00 2018 -0700
+
+    fix case for 'Point' geojson
+
+commit 34be3f9c2da336828ea2becd13e6e1d6753ae0b4
+Author: gmanipon <gmanipon@jpl.nasa.gov>
+Date:   Mon Jun 18 19:45:12 2018 +0000
+
+    update params and api to 0.2 for dedup
+
+commit 9cdbfc0fe113347d4108ce2f84dd4dec7017aa68
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 12:18:41 2018 -0700
+
+    skip submit
+
+commit 5cf968768493849d73657d96ea6bc68bef3fdc6a
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 11:19:09 2018 -0700
+
+    get redis url from container host ip
+
+commit 936e9a89b227cf9a0949e13d760b384eb11cc087
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 11:04:48 2018 -0700
+
+    skip water mask
+
+commit 86fdb3e771445f6b143e29621b38527971d9daeb
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 10:32:38 2018 -0700
+
+    Update Dockerfile
+
+commit d5b1d5bc1d67c628b58968eaa3806fa74074b5b9
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 10:26:13 2018 -0700
+
+    set user in dockerfile
+
+commit 3e00d3ad925fcc55170a1676d74f115c8d53edbd
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 10:21:11 2018 -0700
+
+    move to water_mask pge
+
+commit bb5b4be8eb1bc1d368cd90b27ca809ad46b2ae4a
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 09:34:25 2018 -0700
+
+    update dockerfile
+
+commit c1f4c615a35e46482c242a9c7745f2faf913458d
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Mon Jun 18 09:30:29 2018 -0700
+
+    update dockerfile
+
+commit 6650c22ee09b4a59bc4e0ec60db27e3633a09f73
+Author: Justin P Linick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Sun Jun 17 23:13:51 2018 -0700
+
+    update git clone
+
+commit c47e9b3365407b87d950f85e7985e3d216be67dc
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Sat Jun 16 09:37:08 2018 +0000
+
+    update dockerfile spec
+
+commit 24d22573cb3584fbdaf59580efdba6fa01c3dae8
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Sat Jun 16 02:27:21 2018 -0700
+
+    update syntax
+
+commit 19de0d48f29f141db7546481832d40d93fe85710
+Author: jlinick <Justin.P.Linick@jpl.nasa.gov>
+Date:   Sat Jun 16 02:15:44 2018 -0700
+
+    initial commit
