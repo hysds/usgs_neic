@@ -72,7 +72,7 @@ def run_query(query):
     try:
         session = requests.session()
         response = session.get(query, timeout=30)
-    except Exception, e:
+    except Exception as e:
         raise Exception('USGS Query failed: {0}\nquery: {1}'.format(e, query)) 
     #print(response)
     if response.status_code != 200:
