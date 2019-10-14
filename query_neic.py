@@ -23,6 +23,7 @@ import build_event_product
 POOL = None
 REDIS_KEY = 'neic_last_query'
 
+
 def main(minmag=None, starttime=None, endtime=None, updatedafter=None, alertlevel=None, slack_notification=False, polygon=None, test=False, submit=False):
     '''main method. runs tests, queries usgs, filters events, then builds products'''
     #run test aoi first if test is provided
@@ -39,6 +40,7 @@ def main(minmag=None, starttime=None, endtime=None, updatedafter=None, alertleve
         build_event_product.build(event, submit)
     if redis:
        set_redis_query_time(response) #sets the redis query to the updated time returned from the usgs query
+
 
 def build_query(minmag, starttime, endtime, updatedafter, alertlevel, polygon_string):
     '''builds a query url from the input filter params. returns the url'''
@@ -67,6 +69,7 @@ def build_query(minmag, starttime, endtime, updatedafter, alertlevel, polygon_st
         query += '&alertlevel={0}'.format(alertlevel)
     return query
 
+
 def run_query(query):
     '''runs the input query over the given url, returning a dict object from the result text'''
     try:
@@ -78,6 +81,7 @@ def run_query(query):
     if response.status_code != 200:
         raise Exception("{0} status for query: {1}".format(response.status_code, query))
     return json.loads(response.text)
+
 
 def filter_response(response, polygon_string):
     '''validate response and filter through polygon client-side'''
@@ -94,6 +98,7 @@ def filter_response(response, polygon_string):
     print('filtered results returned {0} total'.format(len(events)))
     return events
 
+
 def validate_polygon_string(polygon_string):
     '''validates the input json polygon string is a valid geojson'''
     if polygon_string == None:
@@ -105,10 +110,12 @@ def validate_polygon_string(polygon_string):
         return False
     return True    
 
+
 def get_polygon(polygon_string):
     '''returns a polygon geojson object'''
     json_polygon = json.loads(polygon_string)
     return Polygon(json_polygon)
+
 
 def validate_coverage(lat, lon, polygon_string):
     '''determines if the lat,lon is covered by the polygon. returns true if it is covered, false otherwise'''
@@ -119,10 +126,12 @@ def validate_coverage(lat, lon, polygon_string):
         return True
     return False
 
+
 def is_covered(point, polygon):
     if polygon.intersects(point):
         return True
     return False
+
 
 def validate_user_time(input_time):
     '''parses the time and returns in UTC format'''
@@ -132,6 +141,7 @@ def validate_user_time(input_time):
         raise Exception('Unable to parse input time: {0}'.format(input_time))
     return user_time.strftime('%Y-%m-%dT%H:%M:%S')
 
+
 def validate_decimal(input_decimal):
     '''returns a string to 0.1 sig fig'''
     try:
@@ -139,9 +149,11 @@ def validate_decimal(input_decimal):
     except:
         print('Input value invalid: {0}'.format(input_decimal))
 
+
 def get_redis_time():
     '''get the last successful runtime from redis'''
     return redis_get(REDIS_KEY)
+
 
 def redis_get(key):
     '''returns the value of the given redis key'''
@@ -150,7 +162,8 @@ def redis_get(key):
     POOL = redis.ConnectionPool.from_url(redis_url)
     rds = redis.StrictRedis(connection_pool=POOL)
     value = rds.get(key)
-    return value
+    return value.decode('utf-8')
+
 
 def redis_set(key, value):
     '''set redis key to the given value'''
@@ -161,10 +174,12 @@ def redis_set(key, value):
     rds.set(key, value)
     return value
 
+
 def get_test_event():
     '''loads test_event.json file and returns the dict'''
     test_json = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'test_event.json')
     return json.load(open(test_json))
+
 
 def set_redis_query_time(usgs_response):
     usgs_time = usgs_response['metadata']['generated']
@@ -173,10 +188,12 @@ def set_redis_query_time(usgs_response):
     print('setting redis last query time to: {0}'.format(query_time))
     redis_set(REDIS_KEY, query_time)
 
+
 def convert_epoch_time_to_utc(epoch_time):
     '''convert an epoch time to proper utc time'''
     dt = datetime.datetime.utcfromtimestamp(float(epoch_time)).replace(tzinfo=pytz.UTC)
     return dt.strftime('%Y-%m-%dT%H:%M:%S.%f')[:-3] # use microseconds and convert to milli
+
 
 def parser():
     '''
@@ -195,7 +212,10 @@ def parser():
     parse.add_argument("--submit", required=False, default=False, action="store_true", help="Submits the event directly. Must have datasets in working directory.", dest="submit")
     return parse
 
+
 if __name__ == '__main__':
     args = parser().parse_args()
-    main(minmag=args.minmag, starttime=args.starttime, endtime=args.endtime, updatedafter=args.updatedafter, alertlevel=args.alertlevel, slack_notification=args.slack_notification, polygon=args.polygon, test=args.test, submit=args.submit)
+    main(minmag=args.minmag, starttime=args.starttime, endtime=args.endtime, updatedafter=args.updatedafter,
+         alertlevel=args.alertlevel, slack_notification=args.slack_notification, polygon=args.polygon, test=args.test,
+         submit=args.submit)
 
