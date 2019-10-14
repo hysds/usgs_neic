@@ -34,7 +34,7 @@ def main(minmag, updated, polygon, version, queue, priority, tags):
         r.raise_for_status()
     result = r.json()
     now = datetime.now()
-    if 'result' in result.keys() and 'success' in result.keys():
+    if 'result' in list(result.keys()) and 'success' in list(result.keys()):
         if result['success'] == True:
             job_id = result['result']
             print('%s: submitted USGSS NEIC job version: %s job_id: %s' % (now, version, job_id))
