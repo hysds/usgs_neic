@@ -4,9 +4,9 @@
     "/home/ops/.netrc": "/home/ops/.netrc",
     "/home/ops/.aws": "/home/ops/.aws"
   },
-  "disk_usage":"2GB",
   "recommended-queues": [ "factotum-job_worker-small" ],
-  "soft_time_limit": 1000,
+  "disk_usage":"2GB",
+  "soft_time_limit": 1200,
   "time_limit": 1800,
   "params" : [
   {
