@@ -34,8 +34,10 @@ def main(minmag=None, starttime=None, endtime=None, updatedafter=None, alertleve
     query = build_query(minmag, starttime, endtime, updatedafter, alertlevel, polygon)
     print('Running USGS NEIC query: {0}'.format(query))
     response = run_query(query)   
-    #print(response)
     events = filter_response(response, polygon)
+    print("FINAL LIST")
+    for event in events:
+        print(event)
     for event in events:
         build_event_product.build(event, submit)
     if redis:
@@ -89,13 +91,17 @@ def filter_response(response, polygon_string):
     #parse the json for names and urls
     print('query returned %s results' % len(response['features']))
     for event in response['features']:
+        # throw event out if it's less than M6 and it's a green alert
+        if ((event['properties']['mag'] < 6) and (event['properties']['alert'] == "green")) or \
+           ((event['properties']['mag'] < 6) and (event['properties']['alert'] == None)):
+            continue       
         lat = float(event['geometry']['coordinates'][1])
         lon = float(event['geometry']['coordinates'][0]) 
         if polygon_string: #if we're using a geojson filter
             if not validate_coverage(lat, lon, polygon_string):
                 continue
         events.append(event)
-    print('filtered results returned {0} total'.format(len(events)))
+    print('Filtered results returned {0} total'.format(len(events)))
     return events
 
 
